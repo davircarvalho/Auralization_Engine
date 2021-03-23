@@ -21,13 +21,13 @@
 <hr>
 
 
-Matlab app designed to create virtual auditory scenes using SOFA HRTFs and n-channels .wav signals.
+Matlab app designed to create virtual auditory scenes using SOFA HRTFs and *n*-channels wav signals.
 
 ## Main features
 
-- **Source position variation in real time** (according to the measured azimuths and elevations measured in the HRTF file);
+- **Source position variation in real time** (according to the azimuths and elevations measured in the HRTF file);
 
-- **SOFA HRTFs** (check the SimpleFreeFieldHRIR SOFA conventions);
+- **Support to SOFA HRTFs** (check the SimpleFreeFieldHRIR SOFA conventions);
 
 - **Headphone transfer functions** (HpTF) filter correction (2 channels .wav file);
 
@@ -35,10 +35,10 @@ Matlab app designed to create virtual auditory scenes using SOFA HRTFs and n-cha
 
 ## Planned features
 
-- *Offline* high resolution interpolation using Spherical harmonics ;
+- *Offline* high resolution interpolation using spherical harmonics ;
 
 - Real time Vector Based Amplitude Panning (VBAP) interpolation;
 
-- Assembly of the *n*-channels audio file from *n* individual .wav files.
+- Assembly of the *n*-channels audio file from *n* individual wav files.
 
-  *Feel free to leave your suggestions* 
+  *Feel free to leave your suggestions!* 
