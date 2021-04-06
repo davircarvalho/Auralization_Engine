@@ -23,6 +23,8 @@
 
 Matlab app designed to create virtual auditory scenes using SOFA HRTFs and *n*-channels wav signals.
 
+>**Built with Matlab r2020b**
+
 ## Main features
 
 - **Source position variation in real time** (according to the azimuths and elevations measured in the HRTF file);
