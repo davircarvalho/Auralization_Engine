@@ -25,6 +25,12 @@ Matlab app designed to create virtual auditory scenes using SOFA HRTFs and *n*-c
 
 >**Built with Matlab r2020b**
 
+## Install
+At the **APP** tab in MATLAB, select *install app*, then pick the file <**Auralization_Engine.mlappinstall**> and click *install*!
+
+That's it, the app will show on your installed apps list now! Have fun!
+
+
 ## Main features
 
 - **Source position variation in real time** (according to the azimuths and elevations measured in the HRTF file);
