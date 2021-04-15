@@ -43,6 +43,8 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 ## Planned features
 
+- Head tracking via webcam and generic head tracker support;
+
 - *Offline* high resolution interpolation using spherical harmonics ;
 
 - Real time Vector Based Amplitude Panning (VBAP) interpolation;
