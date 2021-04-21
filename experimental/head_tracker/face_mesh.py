@@ -1,14 +1,55 @@
-
 import cv2
 import mediapipe as mp
 import socket
 import threading
 import queue
-import os
+import json
+import operator 
+import numpy as np 
 
+
+def vec_from_points(A, B):
+  v = list(map(operator.sub, A, B))
+  return v
+def get_head_orientation():
+    coordinates = face_landmarks.landmark
+    x = []
+    y = []
+    z = []
+    row = []
+    pitch = []
+    yaw = []
+    points = [50, 110, 220]
+    for k in points:
+      x.append(coordinates[k].x)
+      y.append(coordinates[k].y)
+      z.append(coordinates[k].z)  
+
+    return [x, y, z]
+
+
+def send_to_server():
+   coords = json.dumps(get_head_orientation(), ensure_ascii=False).encode()
+   conn.send(coords) #send message back
+
+
+# TPC waiting for message
+def receive_from_server():
+  global conn, thread_is_empty, initialization_flag
+  
+  if initialization_flag is True:
+      conn = q.get()
+      initialization_flag = False
+  message = conn.recv(1024) # this stops and waits for message
+  # print(message) 
+  send_to_server() # the recv() triggers the calculation of current head orientation
+  thread_is_empty = True
+
+# TCP SERVER
 def initialize_server():
+  global conn
   HOST = ''                 # Symbolic name meaning all available interfaces
-  PORT = 50007              # Arbitrary non-privileged port
+  PORT = 50050              # Arbitrary non-privileged port
   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   s.bind((HOST, PORT))
   s.listen(1)
@@ -16,25 +57,22 @@ def initialize_server():
   print('Connected!')  
   q.put(conn)
 
-def receive_from_server():
-  global conn, initialization_flag
-  if initialization_flag:
-      conn = q.get()
-      initialization_flag = False
-  message = conn.recv(1024)
-  conn.sendall(message)
-  print(str(message))
 
+# MediaPipe FaceMesh
 def processing():
-  global q
-  # Initialize server program
+  # Initialize TCP server
+  global q, thread_is_empty, initialization_flag, face_landmarks
   q = queue.Queue()
   t1 = threading.Thread(target=initialize_server)
+  t1.daemon = True
   t1.start()
 
-  global initialization_flag
-  initialization_flag = True
+  #  general flags
+  thread_is_empty = True # flag for receiving messages
+  initialization_flag = True # first run
 
+
+  # MediaPipe itself
   mp_face_mesh = mp.solutions.face_mesh
   mp_drawing = mp.solutions.drawing_utils
   with mp_face_mesh.FaceMesh(
@@ -50,7 +88,6 @@ def processing():
     
       # For webcam input:
       drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
-
 
       # Flip the image horizontally for a later selfie-view display, and convert
       # the BGR image to RGB.
@@ -72,8 +109,7 @@ def processing():
               landmark_drawing_spec=drawing_spec,
               connection_drawing_spec=drawing_spec)
 
-
-      # Open window
+      # Open window: show image
       cv2.imshow('MediaPipe FaceMesh', image)
 
       if cv2.waitKey(5) & 0xFF == 27:
@@ -81,25 +117,20 @@ def processing():
 
       # Kill it when you press quit window
       if cv2.getWindowProperty('MediaPipe FaceMesh',cv2.WND_PROP_VISIBLE) < 1: 
-          print('Goodbye!')       
+          print('Goodbye!')      
+          # kill tcp connection
+          # conn.close() 
           cv2.destroyAllWindows()
           cap.release() 
-          conn.close()
-          # kill threads
-          t1.terminate()
-          t2.terminate()
+          
 
       # Listening to ports
-      t2 = threading.Thread(target=receive_from_server)
-      t2.start()
-      # send data to the server
-      # if conn.recv(1024):
-      #    print(conn.recv(1024))
-      # if matlab_request:
-      #    conn.sendall(matlab_request)
-      # else:
-      #   continue
-  conn.close()
+      if thread_is_empty:
+        t2 = threading.Thread(target=receive_from_server)
+        t2.daemon = True
+        t2.start()
+        thread_is_empty = False
+  
 
 
 
