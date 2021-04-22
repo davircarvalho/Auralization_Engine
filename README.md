@@ -41,6 +41,13 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 - **Source distance variation** according to the parallax effect (adapted from the SUpDEq toolbox), energy decay with source distance and air attenuation as a function of frequency (according to ISO 9613-1).
 
+
+## Folder structure
+
+- ```src/``` : Contains the source files required to build the app from scratch;
+
+- ```experimental/``` : Contains features under development there are not necessarily already implemented to the app itself. Currently you can find an implementation of webcam head tracker based on the google's mediapipe face mesh in python, but ready to connect to matlab via local TCP/IP protocol, as indicated in the test scripts.
+
 ## Planned features
 
 - Head tracking via webcam and generic head tracker support;
