@@ -39,7 +39,7 @@ FIR{2} = dsp.FIRFilter('NumeratorSource','Input port');
 open('HeadTrackerUDP.exe')
 udpr = dsp.UDPReceiver('RemoteIPAddress', '127.0.0.1',...
                        'LocalIPPort',50050, ...
-                       'ReceiveBufferSize', 12); % conectar matlab ao head tracker
+                       'ReceiveBufferSize', 18); % conectar matlab ao head tracker
 
 % setup(udpr); 
 % Processamento em tempo real (fonte fixa no espaco)
@@ -54,7 +54,7 @@ s_elev = 0;
 
 idx_pos = dsearchn(sourcePosition, [s_azim, s_elev]);
 
-
+tic
 while toc < 30
     % Ler orientação atual do HeadTracker.
     py_output = step(udpr);

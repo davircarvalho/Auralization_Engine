@@ -24,7 +24,7 @@ if python
 %% Via .exe
 else   
     addpath(genpath(pwd))
-%     open('HeadTracker.exe')
+    open('HeadTrackerUDP.exe')
 end
 
 
