@@ -18,11 +18,12 @@ def get_head_orientation(rvec, tvec):
 
     # find euler angles 
     euler_angles =  cv2.decomposeProjectionMatrix(P)[6]
-
-    yaw = euler_angles[1,0] # azimuth
-
+    pitch = -euler_angles.item(0) # roll
+    yaw = -euler_angles.item(1) # azimuth
+    row = -euler_angles.item(2) # azimuth
     print('yaw: ', yaw)
     return yaw
+
 
 
 
@@ -92,8 +93,7 @@ with mp_face_mesh.FaceMesh(
       model_points = metric_landmarks[0:3, points_idx].T
       image_points = landmarks[0:2, points_idx].T * np.array([frame_width, frame_height])[None,:]
 
-      success, rotation_vector, translation_vector = cv2.solvePnP(model_points, image_points, camera_matrix, dist_coeff, flags=cv2.cv2.SOLVEPNP_ITERATIVE)
-
+      success, rotation_vector, translation_vector = cv2.solvePnP(model_points, image_points, camera_matrix, dist_coeff, flags=cv2.cv2.SOLVEPNP_ITERATIVE) 
       # ROLL, PITCH and YAW
       yaw = get_head_orientation(rotation_vector, translation_vector)
 

@@ -1,5 +1,6 @@
 src/test_audio
 experimental/head_tracker/__pycache__
+experimental/head_tracker/output
 experimental/ref
 *.asv
 *.pdf

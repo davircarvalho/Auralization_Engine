@@ -1,26 +1,36 @@
 clear all; clc
-terminate(pyenv)
-%% set environment
-executable = 'C:\Users\rdavi\anaconda3\envs\mediapipe\python';
-executionMode = 'OutOfProcess'; % MUST be 'out of process' to allow TCP connection
-pe = pyenv('Version',executable,'ExecutionMode',executionMode);
+% DAVI ROCHA CARVALHO APRIL/2021 - Eng. Acustica @UFSM 
+% Test webcam head tracker calling 
 
-if count(py.sys.path,'') == 0
-    insert(py.sys.path,int32(0),'');
+%% Properties
+python = false;
+
+%% Via  python
+if python
+    % path to the python environment 
+    executable = 'C:\Users\rdavi\anaconda3\envs\mediapipe\python'; %#ok<*UNRCH>
+    executionMode = 'OutOfProcess'; % MUST be 'out of process' to allow TCP connection
+    pe = pyenv('Version',executable,'ExecutionMode',executionMode);
+
+    if count(py.sys.path,'') == 0
+        insert(py.sys.path,int32(0),'');
+    end
+    p = gcp();
+    parfeval(p, @py.HeadTracker.processing, 0); % Oh yeah!!
+
+    
+%% Via .exe
+else   
+    addpath(genpath(pwd))
+    open('HeadTracker.exe')
 end
 
 
-%% Initialize pyhton
-p = gcp();
-parfeval(p, @py.head_tracker_via_tcp.processing, 0); % Oh yeah!!
-
-
-%% TCP-IP connection 
+%% TCP/IP connection 
 t = tcpclient('localhost', 50050);
-addpath(genpath(pwd))
 
-%% request data (write a message)
 
+%% Read data from 
 while true   % send request
     % read response
     py_output = char(read(t)); 
