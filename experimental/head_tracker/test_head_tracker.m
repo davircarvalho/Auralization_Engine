@@ -4,6 +4,8 @@ clear all; clc
 
 %% Properties
 python = false;
+UDP = true;
+
 
 %% Via  python
 if python
@@ -22,20 +24,37 @@ if python
 %% Via .exe
 else   
     addpath(genpath(pwd))
-    open('HeadTracker.exe')
+%     open('HeadTracker.exe')
 end
 
 
-%% TCP/IP connection 
-t = tcpclient('localhost', 50050);
+
+if UDP
+    %% UDP connection 
+    udpr = dsp.UDPReceiver('RemoteIPAddress', '127.0.0.1',...
+                           'LocalIPPort',50050, ...
+                           'ReceiveBufferSize', 32);
+    % Read data from 
+    while true
+        % read response
+        py_output = step(udpr);
+        if ~isempty(py_output)
+           yaw = str2double(native2unicode(py_output)) 
+        end
+    end 
+    release(udpr)
+
+else
+    %% TCP/IP connection 
+    t = tcpclient('localhost', 50050);
 
 
-%% Read data from 
-while true   % send request
-    % read response
-    py_output = char(read(t)); 
-    if ~isempty(py_output)
-        yaw = (native2unicode(py_output))
-    end
-end 
-
+    % Read data from 
+    while true   % send request
+        % read response
+        py_output = char(read(t)); 
+        if ~isempty(py_output)
+            yaw = (native2unicode(py_output))
+        end
+    end 
+end
