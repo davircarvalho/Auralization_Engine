@@ -22,7 +22,7 @@ heli = resample(heli,sampleRate,originalSampleRate);
 
 %% Jogar audio para objeto DSP
 sigsrc = dsp.SignalSource(heli, ...
-    'SamplesPerFrame',256, ...
+    'SamplesPerFrame',512, ...
     'SignalEndAction','Cyclic repetition');
 
 % Configurar dispositivo de audio
@@ -36,7 +36,7 @@ FIR{2} = dsp.FIRFilter('NumeratorSource','Input port');
 
 
 %% Inicializar Head Tracker 
-open('HeadTrackerUDP.exe')
+open('HeadTracker.exe')
 udpr = dsp.UDPReceiver('RemoteIPAddress', '127.0.0.1',...
                        'LocalIPPort',50050, ...
                        'ReceiveBufferSize', 18); % conectar matlab ao head tracker
@@ -53,6 +53,7 @@ s_azim = 0;
 s_elev = 0;
 
 idx_pos = dsearchn(sourcePosition, [s_azim, s_elev]);
+release(deviceWriter)
 
 tic
 while toc < 30
@@ -77,3 +78,4 @@ while toc < 30
     deviceWriter(squeeze(audioFiltered)); 
 end
 release(udpr)
+release(deviceWriter)

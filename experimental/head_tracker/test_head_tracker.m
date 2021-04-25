@@ -1,10 +1,9 @@
 clear all; clc
 % DAVI ROCHA CARVALHO APRIL/2021 - Eng. Acustica @UFSM 
-% Test webcam head tracker calling 
+% Test connection between MATLAB and webcam head tracker 
 
 %% Properties
 python = false;
-UDP = true;
 
 
 %% Via  python
@@ -24,37 +23,21 @@ if python
 %% Via .exe
 else   
     addpath(genpath(pwd))
-    open('HeadTrackerUDP.exe')
+    open('HeadTracker.exe')
 end
 
 
+%% UDP connection
+udpr = dsp.UDPReceiver('RemoteIPAddress', '127.0.0.1',...
+                       'LocalIPPort',50050, ...
+                       'ReceiveBufferSize', 32);
+% Read data from 
+while true
+    % read response
+    py_output = step(udpr);
+    if ~isempty(py_output)
+       yaw = str2double(native2unicode(py_output))
+    end
+end 
+release(udpr)
 
-if UDP
-    %% UDP connection 
-    udpr = dsp.UDPReceiver('RemoteIPAddress', '127.0.0.1',...
-                           'LocalIPPort',50050, ...
-                           'ReceiveBufferSize', 32);
-    % Read data from 
-    while true
-        % read response
-        py_output = step(udpr);
-        if ~isempty(py_output)
-           yaw = str2double(native2unicode(py_output)) 
-        end
-    end 
-    release(udpr)
-
-else
-    %% TCP/IP connection 
-    t = tcpclient('localhost', 50050);
-
-
-    % Read data from 
-    while true   % send request
-        % read response
-        py_output = char(read(t)); 
-        if ~isempty(py_output)
-            yaw = (native2unicode(py_output))
-        end
-    end 
-end

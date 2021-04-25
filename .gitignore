@@ -1,10 +1,10 @@
 src/test_audio
 experimental/head_tracker/__pycache__
 experimental/head_tracker/output
+experimental/head_tracker/dep
 experimental/ref
 *.asv
 *.pdf
 *.rar
 *.pyc 
-
-
+*.ico

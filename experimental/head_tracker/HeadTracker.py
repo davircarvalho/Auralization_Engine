@@ -24,54 +24,44 @@ def get_head_orientation():
     # find euler angles 
     euler_angles =  cv2.decomposeProjectionMatrix(P)[6]
     # pitch = -euler_angles.item(0) # roll
-    yaw = -euler_angles.item(1) # azimuth
+    yaw = euler_angles.item(1) # azimuth
     # row = -euler_angles.item(2) # azimuth
     return yaw
 
 
 def send_to_server():
-  global thread_is_empty, connected
-  if connected:
     try:
       coords = json.dumps(get_head_orientation(), ensure_ascii=False).encode()
-      conn.sendall(coords) #send message back
-      # print('yaw: ', coords)
+      s.sendto(coords, (IP,PORT)) #send message back
+    #   print('yaw: ', coords)
     except:
-      print('Disconnected!')
+      print('Not Connected!')
       connected = False
       t1 = threading.Thread(target=initialize_server)
       t1.daemon = True
       t1.start()
 
-  thread_is_empty = True
 
-
-# TCP SERVER
+# UDP SERVER
 def initialize_server():
-  global conn, connected
-  HOST = 'localhost'  # Symbolic name meaning all available interfaces
+  global s, connected, IP, PORT
+  IP = '127.0.0.1'  # Symbolic name meaning all available interfaces
   PORT = 50050              # Arbitrary non-privileged port
-  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-  s.bind((HOST, PORT))
-  s.listen()
-  conn, addr = s.accept()
-  connected = True
-  print('Connected!')  
+  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
+
+
 
 
 def processing():
-  # Initialize TCP server
-  global connected, thread_is_empty, rotation_vector, translation_vector
+  # Initialize UDP server
+  global rotation_vector, translation_vector
   t1 = threading.Thread(target=initialize_server)
   t1.daemon = True
   t1.start()
 
-  #  general flags
-  thread_is_empty = True # flag for sending messages
-  connected = False
 
   # MEDIAPIPE SETUP ---------------------------------------------------------------
-  window_name = 'Head tracker -- (HOST: "localhost", PORT:50050)' # opencv window name
+  window_name = 'Head tracker -- [IP:"127.0.0.1", PORT:50050]' # opencv window name
   points_idx = [33,263,61,291,199]
   points_idx = points_idx + [key for (key,val) in procrustes_landmark_basis]
   points_idx = list(set(points_idx))
@@ -161,12 +151,9 @@ def processing():
             cv2.destroyAllWindows()
             cap.release() 
 
-        # TCP Listening to ports
-        if thread_is_empty:
-          t2 = threading.Thread(target=send_to_server)
-          t2.daemon = True
-          thread_is_empty = False
-          t2.start()
+        # UDP Listening to ports
+        send_to_server()
+
           
   
 
