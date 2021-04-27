@@ -1,4 +1,5 @@
 src/test_audio
+src/HeadTracker
 experimental/head_tracker/__pycache__
 experimental/head_tracker/output
 experimental/head_tracker/dep
