@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3859866109" file="D:\Documentos\1 - Work\Individualized_HRTF_Synthesis\Auraliza App\Auraliza.prj" location="D:\Documentos\1 - Work\Individualized_HRTF_Synthesis\Auraliza App" name="Auraliza" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2145531881" file="D:\Documentos\1 - Work\Auralization_Engine\src\Auraliza.prj" location="D:\Documentos\1 - Work\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
     <param.appname>Auraliza</param.appname>
     <param.authnamewatermark>Davi R Carvalho</param.authnamewatermark>
     <param.email />
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary />
     <param.description>Módulo de auralização SOFA multicanal</param.description>
-    <param.screenshot>C:\Users\rdavi\AppData\Local\Temp\tp1a558b6b_5c3b_40eb_93b4_bd4fc05a319e.png</param.screenshot>
-    <param.version>1.02.27</param.version>
+    <param.screenshot>C:\Users\rdavi\AppData\Local\Temp\tp5069bd77_20a4_42a1_90a1_bc7ee3994810.png</param.screenshot>
+    <param.version>1.04.28</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -42,18 +42,18 @@
       <file>${PROJECT_ROOT}\sph2nav.m</file>
       <file>${PROJECT_ROOT}\stopbuttom.png</file>
       <file>${PROJECT_ROOT}\supdeq_parallax.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\netcdf\NETCDFload.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAaddVariable.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAappendText.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAarghelper.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAcheckFilename.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAdbPath.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAdbURL.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAdefinitions.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAgetVersion.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAload.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAupdateDimensions.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\ThirdParty\SOFA_API_MO\SOFAupgradeConventions.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\netcdf\NETCDFload.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAaddVariable.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAappendText.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAarghelper.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAcheckFilename.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAdbPath.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAdbURL.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAdefinitions.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAgetVersion.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAload.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAupdateDimensions.m</file>
+      <file>D:\Documentos\MATLAB\SOFA toolbox\API_MO\API_MO\SOFAupgradeConventions.m</file>
     </fileset.depfun>
     <fileset.resources>
       <file>${PROJECT_ROOT}\conventions</file>
@@ -64,7 +64,7 @@
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="D:\Documentos\1 - Work\Individualized_HRTF_Synthesis" name="Auraliza App" optional="false">D:\Documentos\1 - Work\Individualized_HRTF_Synthesis\Auraliza App</file>
+      <file location="D:\Documentos\1 - Work\Auralization_Engine" name="src" optional="false">D:\Documentos\1 - Work\Auralization_Engine\src</file>
     </build-deliverables>
     <workflow />
     <matlab>
