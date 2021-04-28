@@ -1,6 +1,9 @@
 clear all;  clc
 addpath(genpath(pwd))
+% DAVI ROCHA CARVALHO APRIL/2021 - Eng. Acustica @UFSM 
+% Test binaural rendering using webcam head tracker 
 
+% MATLAB R2020b
 %% Carregar HRTFs
 %Essas ja vem com o matlab, nao precisa definir path nem nada
 ARIDataset = load('ReferenceHRTF.mat'); 
@@ -41,8 +44,7 @@ udpr = dsp.UDPReceiver('RemoteIPAddress', '127.0.0.1',...
                        'LocalIPPort',50050, ...
                        'ReceiveBufferSize', 18); % conectar matlab ao head tracker
 
-% setup(udpr); 
-% Processamento em tempo real (fonte fixa no espaco)
+%% Processamento em tempo real (fonte fixa no espaco)
 audioUnderruns = 0;
 audioFiltered = zeros(sigsrc.SamplesPerFrame,2);
 
@@ -61,10 +63,13 @@ while toc < 30
     py_output = step(udpr);
     
     if ~isempty(py_output)
-        yaw = str2double(native2unicode(py_output)); % sr~20Hz
+        data = str2num(convertCharsToStrings(char(py_output))); %#ok<*ST2NM>
+        yaw = data(1);
+        pitch = data(2);
+        roll = data(3);
     end
     
-    idx_pos = dsearchn(sourcePosition, [s_azim + yaw, s_elev]);
+    idx_pos = dsearchn(sourcePosition, [s_azim - yaw, s_elev - pitch]);
 
     % Obtain a pair of HRTFs at the desired position.
     HRIR = squeeze((hrtfData(idx_pos, :,:)));

@@ -2,18 +2,18 @@ clear all; clc
 % DAVI ROCHA CARVALHO APRIL/2021 - Eng. Acustica @UFSM 
 % Test connection between MATLAB and webcam head tracker 
 
+% MATLAB R2020b
 %% Properties
-python = false;
-
+python = true;
 
 %% Via  python
 if python
     % path to the python environment 
-    executable = 'C:\Users\rdavi\anaconda3\envs\mediapipe\python'; %#ok<*UNRCH>
-    executionMode = 'OutOfProcess'; % MUST be 'out of process' to allow TCP connection
+    executable = 'C:\Users\rdavi\anaconda3\envs\headtracker\python'; %#ok<*UNRCH>
+    executionMode = 'OutOfProcess'; 
     pe = pyenv('Version',executable,'ExecutionMode',executionMode);
 
-    if count(py.sys.path,'') == 0
+    if count(py.sys.path,'') == 0 % Adicionar path para 'variaveis ambiente caso num exista
         insert(py.sys.path,int32(0),'');
     end
     p = gcp();
@@ -28,16 +28,21 @@ end
 
 
 %% UDP connection
-udpr = dsp.UDPReceiver('RemoteIPAddress', '127.0.0.1',...
-                       'LocalIPPort',50050, ...
+IP = '127.0.0.1';
+PORT = 50050;
+udpr = dsp.UDPReceiver('RemoteIPAddress', IP,...
+                       'LocalIPPort',PORT, ...
                        'ReceiveBufferSize', 32);
+                   
 % Read data from 
 while true
     % read response
-    py_output = step(udpr);
+    py_output = udpr();
     if ~isempty(py_output)
-       yaw = str2double(native2unicode(py_output))
+       data = str2num(convertCharsToStrings(char(py_output))); %#ok<*ST2NM>
+       disp([' yaw:', num2str(data(1)),...
+             ' pitch:', num2str(data(2)),...
+             ' roll:', num2str(data(3))])
     end
 end 
-release(udpr)
 

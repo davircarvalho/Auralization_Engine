@@ -12,6 +12,16 @@ import threading
 import json
 import numpy as np 
 from face_geometry import get_metric_landmarks, PCF, canonical_metric_landmarks, procrustes_landmark_basis
+import math
+import os 
+
+
+def clip_angle(val): 
+    '''
+      This function makes values grow faster as they approach the defined limit (90°)
+    '''
+    val = abs(val)
+    return val # + val*math.tanh(val/90)*2
 
 
 def get_head_orientation():
@@ -23,28 +33,45 @@ def get_head_orientation():
 
     # find euler angles 
     euler_angles =  cv2.decomposeProjectionMatrix(P)[6]
-    # pitch = -euler_angles.item(0) # roll
-    yaw = euler_angles.item(1) # azimuth
-    # row = -euler_angles.item(2) # azimuth
-    return yaw
+    pitch = -euler_angles.item(0) # roll
+    yaw = -euler_angles.item(1) # azimuth
+    roll = euler_angles.item(2) # azimuth
 
+    # Ajust coordinate ranges
+    if pitch < 0:
+      pitch = 180 + pitch
+      pitch  = clip_angle(pitch)
+    else:
+      pitch = pitch - 180
+      pitch  = -clip_angle(pitch) 
+
+    if yaw > 0:
+      yaw  = clip_angle(yaw)
+    else:
+      yaw  = -clip_angle(yaw)
+
+    # print('yaw: ', yaw)
+    roll = round(roll)
+    pitch = round(pitch)
+    yaw = round(yaw)
+    t = '{y},{p},{r}'.format(y=yaw,p=pitch,r=roll) 
+    return t
 
 def send_to_server():
     try:
-      coords = json.dumps(get_head_orientation(), ensure_ascii=False).encode()
-      s.sendto(coords, (IP,PORT)) #send message back
-    #   print('yaw: ', coords)
+      coords = get_head_orientation()
+      s.sendto(coords.encode(), (IP,PORT)) #send message back
+      print(coords)
     except:
       print('Not Connected!')
-      connected = False
-      t1 = threading.Thread(target=initialize_server)
+      t1 = threading.Thread(target=initialize_server) 
       t1.daemon = True
       t1.start()
 
 
 # UDP SERVER
 def initialize_server():
-  global s, connected, IP, PORT
+  global s, IP, PORT
   IP = '127.0.0.1'  # Symbolic name meaning all available interfaces
   PORT = 50050              # Arbitrary non-privileged port
   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
@@ -136,7 +163,7 @@ def processing():
             p1 = ( int(image_points[0][0]), int(image_points[0][1]))
             p2 = ( int(nose_end_point2D[0][0][0]), int(nose_end_point2D[0][0][1]))
 
-            image = cv2.line(image, p1, p2, (0,0,155), 2)
+            image = cv2.arrowedLine(image, p1, p2, (0,0,155), 2)
             
         # Open window: show image
         cv2.imshow(window_name, image)
