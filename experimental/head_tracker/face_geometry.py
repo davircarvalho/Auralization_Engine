@@ -1,3 +1,6 @@
+# Thanks to https://github.com/Rassibassi/mediapipeFacegeometryPython
+# for assemblying this piece of code 
+# 
 # Many parts taken from the cpp implementation from github.com/google/mediapipe 
 #
 # Copyright 2020 The MediaPipe Authors.
