@@ -4,7 +4,7 @@ clear all; clc
 
 % MATLAB R2020b
 %% Properties
-python = false;
+python = true;
 
 %% Via  python
 if python
@@ -31,8 +31,7 @@ end
 IP = '127.0.0.1';
 PORT = 50050;
 udpr = dsp.UDPReceiver('RemoteIPAddress', IP,...
-                       'LocalIPPort',PORT, ...
-                       'ReceiveBufferSize', 32);
+                       'LocalIPPort',PORT);
                    
 % Read data from 
 while true

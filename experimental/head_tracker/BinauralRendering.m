@@ -56,6 +56,7 @@ s_elev = 0;
 
 idx_pos = dsearchn(sourcePosition, [s_azim, s_elev]);
 release(deviceWriter)
+release(sigsrc)
 
 tic
 while toc < 30
@@ -82,5 +83,5 @@ while toc < 30
     audioFiltered(:,2) = FIR{2}(audioIn, HRIR(2,:)); % Right    
     deviceWriter(squeeze(audioFiltered)); 
 end
-release(udpr)
+release(sigsrc)
 release(deviceWriter)

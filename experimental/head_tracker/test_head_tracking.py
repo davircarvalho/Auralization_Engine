@@ -29,7 +29,7 @@ def get_head_orientation(rvec, tvec):
 
 
 points_idx = [33,263,61,291,199]
-points_idx = points_idx + [key for (key,val) in procrustes_landmark_basis]
+points_idx = points_idx + [key for (key,_) in procrustes_landmark_basis]
 points_idx = list(set(points_idx))
 points_idx.sort()
 
