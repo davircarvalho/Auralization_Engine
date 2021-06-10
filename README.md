@@ -38,11 +38,11 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 - ```src/``` : Contains the source files required to build the app from scratch;
 
-- ```experimental/``` : Contains features under development there are not necessarily already implemented to the app itself. Currently you can find an implementation of webcam head tracker based on the google's mediapipe face mesh in python, but ready to connect to matlab via local UDP/IP protocol, as indicated in the test scripts.
+- ```experimental/``` : Contains features under development there are not necessarily already implemented to the app itself. Currently you can find an implementation of webcam head tracker based on the google's mediapipe face mesh in python, but ready to connect to matlab via local UDP/IP protocol, as indicated in the test scripts. For more information about the Head Tracker go [here](https://github.com/eac-ufsm/internoise2021-headtracker).
 
 ## Planned features
 
-- Head tracking via webcam and generic head tracker support;
+- Head tracking via webcam and generic head tracker support; ✅
 
 - *Offline* high resolution interpolation using spherical harmonics ;
 
