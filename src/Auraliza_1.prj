@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.webdeploy" plugin-version="1.0">
-  <configuration file="D:\Documentos\1 - Work\Individualized_HRTF_Synthesis\Auraliza App\Auraliza_1.prj" location="D:\Documentos\1 - Work\Individualized_HRTF_Synthesis\Auraliza App" name="Auraliza_1" target="target.webdeploy" target-name="Web App Compiler">
+  <configuration file="D:\Documentos\1 - Work\Auralization_Engine\src\Auraliza_1.prj" location="D:\Documentos\1 - Work\Auralization_Engine\src" name="Auraliza_1" target="target.webdeploy" target-name="Web App Compiler">
     <param.appname>Auraliza_1</param.appname>
     <param.intermediate>${PROJECT_ROOT}\Auraliza_1</param.intermediate>
     <param.files.only>${PROJECT_ROOT}\Auraliza_1</param.files.only>
@@ -26,7 +26,7 @@
     <fileset.depfun />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\Auraliza_1" name="Auraliza_1.ctf" optional="false">D:\Documentos\1 - Work\Individualized_HRTF_Synthesis\Auraliza App\Auraliza_1\Auraliza_1.ctf</file>
+      <file location="${PROJECT_ROOT}\Auraliza_1" name="Auraliza_1.ctf" optional="false">D:\Documentos\1 - Work\Auralization_Engine\src\Auraliza_1\Auraliza_1.ctf</file>
     </build-deliverables>
     <workflow />
     <matlab>
@@ -35,8 +35,6 @@
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />
         <toolbox name="gpucoder" />
-        <toolbox name="fixedpoint" />
-        <toolbox name="matlabhdlcoder" />
         <toolbox name="neuralnetwork" />
       </toolboxes>
       <toolbox>
@@ -53,16 +51,6 @@
         <gpucoder>
           <enabled>true</enabled>
         </gpucoder>
-      </toolbox>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
       </toolbox>
       <toolbox>
         <neuralnetwork>
