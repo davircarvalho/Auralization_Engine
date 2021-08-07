@@ -25,13 +25,17 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 ## Main features
 
-- **Source position variation in real time** (according to the azimuths and elevations measured in the HRTF file);
+- **Source position variation in real time**;
 
-- **Support to SOFA HRTFs** (check the SimpleFreeFieldHRIR SOFA conventions);
+- **Support to SOFA SimpleFreeField HRTFs**;
 
 - **Headphone transfer functions** (HpTF) filter correction (2 channels .wav file);
 
-- **Source distance variation** according to the parallax effect (adapted from the SUpDEq toolbox), energy decay with source distance and air attenuation as a function of frequency (according to ISO 9613-1).
+- **Source distance variation** according to the cross-ear parallax effect (adapted from the SUpDEq toolbox), energy decay with source distance and air attenuation as a function of frequency (according to ISO 9613-1), pressure decay via the inverse law or via HRTF equalization (using a spherical model);
+
+- **Head Tracker via webcam face tracking**: Model presented at the [2021 Internoise](https://github.com/eac-ufsm/internoise2021-headtracker) conference.
+
+- ** Multi-perspective view**
 
 
 ## Folder structure
@@ -42,12 +46,12 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 ## Planned features
 
-- Head tracking via webcam and generic head tracker support; ✅
+- Support to [MultiSpeakerBRIR](https://www.sofaconventions.org/mediawiki/index.php/MultiSpeakerBRIR) sofa conventions;
 
-- *Offline* high resolution interpolation using spherical harmonics ;
+- *Offline* high resolution interpolation using spherical harmonics;
 
-- Real time Vector Based Amplitude Panning (VBAP) interpolation;
+- Real time interpolation;
 
-- Assembly of the *n*-channels audio file from *n* individual wav files.
+- Assembly of the *n*-channels audio file from *n* individual wav files inside the app.
 
   *Feel free to leave your suggestions!* 
