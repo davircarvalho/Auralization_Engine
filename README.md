@@ -55,3 +55,20 @@ That's it, the app will show on your installed apps list now! Have fun!
 - Assembly of the *n*-channels audio file from *n* individual wav files inside the app.
 
   *Feel free to leave your suggestions!* 
+
+
+
+## Interface view
+
+<p align="center">
+<img width="800px" src="https://github.com/davircarvalho/Auralization_Engine/blob/master/Images/2.PNG"/>
+</p>
+
+
+<p align="center">
+<img width="800px" src="https://github.com/davircarvalho/Auralization_Engine/blob/master/Images/1.PNG"/>
+</p>
+
+<p align="center">
+<img width="800px" src="https://github.com/davircarvalho/Auralization_Engine/blob/master/Images/3.PNG"/>
+</p>
