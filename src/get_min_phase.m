@@ -40,7 +40,6 @@ end
 if strcmp(p.Results.symmetry, 'nonsymmetric')
     H = [H; flip(H)]; % back to double sided spectrum
 end
-
 %% Get minimum_phase
 phi_min = imag(hilbert(-(log(abs(H)+eps)))); % eps makes avoids log(0) = -inf
 % Filtro inverso complexo (cria fase)
