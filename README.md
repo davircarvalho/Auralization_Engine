@@ -15,7 +15,7 @@
 
 Matlab app designed to create virtual auditory scenes using SOFA HRTFs and *n*-channels wav signals.
 
->**Built with Matlab r2020b**
+>**Built with Matlab r2021a**, if you're using earlier versions, some functionalities might be missing or it might not work as desired.
 
 ## Install
 At the **APP** tab in MATLAB, select *install app*, then pick the file <**Auralization_Engine.mlappinstall**> and click *install*!
@@ -25,17 +25,17 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 ## Main features
 
-- **Source position variation in real time**;
+- **Arbitrary sound source position variation in real time**;
 
-- **Support to SOFA SimpleFreeField HRTFs**;
+- **Support to SOFA [SimpleFreeFieldHRIR](https://www.sofaconventions.org/mediawiki/index.php/SimpleFreeFieldHRIR) and [MultiSpeakerBRIR](https://www.sofaconventions.org/mediawiki/index.php/MultiSpeakerBRIR) SOFA conventions;** ;
 
-- **Headphone transfer functions** (HpTF) filter correction (2 channels .wav file);
+- **Headphone transfer functions** (HpTF) filter correction (2 channels .wav file) or selection from the built-in [AutoEQ](https://github.com/jaakkopasanen/AutoEq) database;
 
-- **Source distance variation** according to the cross-ear parallax effect (adapted from the SUpDEq toolbox), energy decay with source distance and air attenuation as a function of frequency (according to ISO 9613-1), pressure decay via the inverse law or via HRTF equalization (using a spherical model);
+- **Source distance variation** according to the cross-ear parallax effect, energy decay with source distance and air attenuation as a function of frequency (according to ISO 9613-1), pressure decay via the inverse law or via HRTF equalization (spherical head model);
 
-- **Head Tracker via webcam face tracking**: Model presented at the [2021 Internoise](https://github.com/eac-ufsm/internoise2021-headtracker) conference.
+- **Head Tracker via webcam face tracking**: Model presented at the [2021 Internoise](https://github.com/eac-ufsm/internoise2021-headtracker) conference;
 
-- ** Multi-perspective view**
+- ** Multi-perspective view**, (Azimuth x Elevation) or (Azimuth x Radius).
 
 
 ## Folder structure
@@ -44,9 +44,8 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 - ```experimental/``` : Contains features under development there are not necessarily already implemented to the app itself. Currently you can find an implementation of webcam head tracker based on the google's mediapipe face mesh in python, but ready to connect to matlab via local UDP/IP protocol, as indicated in the test scripts. For more information about the Head Tracker go [here](https://github.com/eac-ufsm/internoise2021-headtracker).
 
-## Planned features
 
-- Support to [MultiSpeakerBRIR](https://www.sofaconventions.org/mediawiki/index.php/MultiSpeakerBRIR) sofa conventions;
+## Planned features
 
 - *Offline* high resolution interpolation using spherical harmonics;
 
@@ -58,12 +57,11 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 
 
-## Interface view
+## Interface 
 
 <p align="center">
 <img width="800px" src="https://github.com/davircarvalho/Auralization_Engine/blob/master/Images/2.PNG"/>
 </p>
-
 
 <p align="center">
 <img width="800px" src="https://github.com/davircarvalho/Auralization_Engine/blob/master/Images/1.PNG"/>
