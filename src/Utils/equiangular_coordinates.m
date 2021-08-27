@@ -1,4 +1,4 @@
-function out_pos = equiangular_coordinates(res, radius)
+function out_pos = equiangular_coordinates(res, radius, ele_max, ele_min)
 if nargin<1
     res = 1; % angle resolution
     radius = 1;
@@ -6,10 +6,10 @@ end
 if nargin<2
     radius = 1;
 end
-% res = 1;
-ele_max = 90;
-ele_min = -90;
-
+if nargin <3 
+    ele_max = 90;
+    ele_min = -90;
+end
 base_azi = 0:res:360-res;
 base_ele = sort([0:res:ele_max , 0-res:-res:ele_min]);
 
