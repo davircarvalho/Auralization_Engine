@@ -1,16 +1,21 @@
-% clear all; clc
-% Obj = SOFAload('individuo_141.sofa');
 % Find the end of the impulse response and truncate it
-function Obj = truncate_IR(Obj)
+% Lundeby, Virgran, Bietz and Vorlaender - Uncertainties of Measurements in Room Acoustics - ACUSTICA Vol. 81 (1995)
+% Adapted from ITA_TOOLBOX 
+function [Obj,idx_cut] = truncate_IR(Obj)
 %% Initialization and Input Parsing
 % sz = size(Obj.Data.IR);
 % dimorder = length(sz):-1:1;
 % IR = permute(Obj.Data.IR, dimorder);
-IR = shiftdim(Obj.Data.IR,2);
+convention = Obj.GLOBAL_SOFAConventions;
+if strcmpi(convention, 'MultiSpeakerBRIR')  % MultiSpeakerBRIR
+    IR = permute(Obj.Data.IR, [4,3,2,1]);
+else
+    IR = shiftdim(Obj.Data.IR,2);
+end
 fs = Obj.Data.SamplingRate;
 
-for k =1:2
-timeData = IR(:,:,k);
+for k = 1:size(IR,3)
+timeData = IR(:,:,k,1);
 
 %%
 [nSamples, nChannels] = size(timeData);
@@ -128,9 +133,25 @@ idx_cut = round(cut_point*fs);
 if mod(idx_cut,2) ~= 0
     idx_cut = idx_cut+1;
 end
+
+% Actually cut it
 IR_cut = IR;
-IR_cut(idx_cut+1:end,:,:) = [];
-Obj.Data.IR = shiftdim(IR_cut, 1); %% Devolve ao objeto 
+try % Smooth the tail
+    IR_cut(idx_cut+25:end,:,:,:) = [];    
+    win = blackmanharris(100); % generate window
+    win(1:50) =[];% keep only the decay
+    IR_cut(idx_cut-25:end,:,:,:) = IR_cut(idx_cut-25:end,:,:,:).*win;
+catch % Truncate
+    IR_cut(idx_cut+1:end,:,:,:) = [];
+end
+
+
+if strcmpi(convention, 'MultiSpeakerBRIR')  % MultiSpeakerBRIR
+    Obj.Data.IR = permute(IR_cut, [4,3,2,1]);
+else
+    Obj.Data.IR = shiftdim(IR_cut, 1); %% Devolve ao objeto 
+end
+
 Obj = SOFAupdateDimensions(Obj);
 % Obj.Data.IR = permute(IR_hp_lp, dimorder); %% Devolve ao objeto 
 end
