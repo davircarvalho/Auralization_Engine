@@ -35,7 +35,7 @@ That's it, the app will show on your installed apps list now! Have fun!
 
 - **Head Tracker via webcam face tracking**: Model presented at the [2021 Internoise](https://github.com/eac-ufsm/internoise2021-headtracker) conference;
 
-- ** Multi-perspective view**, (Azimuth x Elevation) or (Azimuth x Radius).
+- **Multi-perspective view**, (Azimuth x Elevation) or (Azimuth x Radius).
 
 
 ## Folder structure
