@@ -20,12 +20,14 @@ freqv = freqv(1:N/2);
 hFigure=figure;
 semilogx(freq, db(H), 'linewidth', 1.5); hold on
 xlim([20 2e4])
-ylim([-11 11])
+ylim([-10 10])
 
 xlabel('Frequency (Hz)');
 ylabel('Magnitude ')
 
 semilogx(freqv, HpTF, 'linewidth', 1.5)
+
+grid on
 
 legend('HpTF', 'Equalization filter',...
         'location', 'best')
