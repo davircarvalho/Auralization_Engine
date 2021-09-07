@@ -33,34 +33,35 @@ k=1:length(clean_file);
 idx_freq = logical(rem(k, 2));
 freq_vec_raw = clean_file(idx_freq);
 freq_mag_raw = clean_file(idx_freq == false).';
+freq_mag_smooth = smoothdata(freq_mag_raw, 'sgolay');
 
 % Inverter magnitude e janelar na frequencia 
-N_win = length(freq_mag_raw);
-win = tukeywin(N_win, 0.03);
+% N_win = length(freq_mag_raw);
+% win = tukeywin(N_win, 0.03);
 % win(round(N_win/2):end) = 1;
-inv_freq_mag_raw = (1./(10.^(freq_mag_raw./20))) .* win;
-
+inv_freq_mag_raw = (1./(10.^(freq_mag_smooth./20))); %.* win;
 % Gerar vetor no tempo
 % remover interpolação para frequencias alem das fornecidas (acima e abaixo)
 [~, idx_low] = min(abs(freq - freq_vec_raw(1)));
-[~, idx_high] = min(abs(freq - freq_vec_raw(end)));
+[~, idx_high] = min(abs(freq - 18e3));
 
-N_up = 2*length(freq(1:idx_low));
-N_down = 2*length(freq(idx_high:end));
-win_up = hann(N_up);
-win_up = win_up(1:N_up/2);
-
-win_down = hann(N_down);
-win_down = win_down((N_down/2+1):end);
+% N_up = 2*length(freq(1:idx_low));
+% N_down = 2*length(freq(idx_high:end));
+% win_up = hann(N_up);
+% win_up = win_up(1:N_up/2);
+% 
+% win_down = hann(N_down);
+% win_down = win_down((N_down/2+1):end);
 
 
 % Criar amostragem de acordo com a taxa de amostragem desejada 
 H = interp1(freq_vec_raw, inv_freq_mag_raw,  freq, 'makima', 'extrap');
 H_out = interp1(freq_vec_raw, 10.^(freq_mag_raw./20),  freq, 'makima', 'extrap');
 
-H(1:idx_low) = 10.^((20*log10(H(1:idx_low)).*win_up')./20);
-H(idx_high:end) = 10.^((20*log10(H(idx_high:end)).*win_down')./20);
-
+% H(1:idx_low) = 10.^((20*log10(H(1:idx_low)).*win_up')./20);
+% H(idx_high:end) = 10.^((20*log10(H(idx_high:end)).*win_down')./20);
+H(1:idx_low+1) = H(idx_low+3);
+H(idx_high:end) = H(idx_high);
 
 Hmin = get_min_phase(H.', 'linear', 'nonsymmetric');
 HpIR = real(ifft(Hmin));
