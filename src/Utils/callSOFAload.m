@@ -39,8 +39,10 @@ if strcmpi(convention, 'MultiSpeakerBRIR')  % MultiSpeakerBRIR
     end
     
     app.HATO = -sph2nav(app.objSOFA.ListenerView);
-    app.HATO = app.HATO(:, 1:2);
+    app.HATO = app.HATO(:, 1);
     app.posi = app.objSOFA.EmitterPosition;
+    
+    app.objSOFA = truncate_IR(app.objSOFA);
 else
     % check if source position is in degree or radians
     if range(app.objSOFA.SourcePosition(:,1)) < 4 
@@ -49,7 +51,7 @@ else
     app.flag_HATO = false;
     app.posi = app.objSOFA.SourcePosition;
     
-    if size(app.objSOFA.Data.IR,3) > 2048
+    if size(app.objSOFA.Data.IR,3) > 4096
         % Truncate HRIR length (Ludenby)
          app.objSOFA = truncate_IR(app.objSOFA);
     end
