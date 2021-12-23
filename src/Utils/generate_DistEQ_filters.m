@@ -31,6 +31,8 @@ for f = 1:length(fs)
         temp(:,:,:,k) = ifft(h_freq(:,N_pos+1:end,:)./h_freq(:,1:N_pos,:));
     end
     distEQ = permute(temp, [3,1,2,4]);
+    distEQ = circshift(distEQ, -170, 1);
+    size(distEQ)
     %%% save files --------------------------------------------------------
     filename = ['Utils/filters/distEQ_' num2str(fs(f)/1e3) 'kHz.mat'];
     save(filename, 'source_radius', 'distEQ', 'Fs', 'azim')

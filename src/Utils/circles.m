@@ -24,10 +24,12 @@ function circles(app, r)
     end
 
     % distancias 
+    offset = (r(end))/10-0.05;
     for k =1:length(r)
         txt = [num2str(round(r(k),1)) 'm'];
         txt(txt == '0') = [];
-        [x,y,~] = sph2cart(deg2rad(135), 0, r(k)+.15);
+        
+        [x,y,~] = sph2cart(deg2rad(135), 0, r(k)+offset);
         text(app.UIAxes, x,y,txt ,...
            'VerticalAlignment','bottom','HorizontalAlignment','left',...
            'FontSize',9, 'Color', [.5 .5 .5])
@@ -39,21 +41,21 @@ function circles(app, r)
         if angls(k) == 90
             txt = '270°';
             aligntxt = 'right';
-            offset = .4;
+            offset_ang = offset*0.4;
         elseif angls(k) == 270
             txt = '90°';    
             aligntxt = 'left';
-            offset = .25;
+            offset_ang = offset*1.5;
         elseif angls(k) == 0
             txt = [num2str(angls(k)) '°'];
             aligntxt = 'center';
-            offset = .1;
+            offset_ang = offset*0.8;
         else
             txt = [num2str(angls(k)) '°'];
             aligntxt = 'center';
-            offset = .25;
+            offset_ang = offset*1.8;
         end
-        [x,y,~] = sph2cart(deg2rad(angls(k)), 0, r2+offset);
+        [x,y,~] = sph2cart(deg2rad(angls(k)), 0, r2+offset_ang);
         text(app.UIAxes,x,y,txt,...
            'VerticalAlignment','bottom',...
            'HorizontalAlignment',aligntxt,...
