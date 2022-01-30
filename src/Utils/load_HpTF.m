@@ -33,7 +33,7 @@ k=1:length(clean_file);
 idx_freq = logical(rem(k, 2));
 freq_vec_raw = clean_file(idx_freq);
 freq_mag_raw = clean_file(idx_freq == false).';
-freq_mag_smooth = smoothdata(freq_mag_raw, 'sgolay',3);
+freq_mag_smooth = smoothdata(freq_mag_raw, 'sgolay',9);
 
 % Inverter magnitude e janelar na frequencia 
 % N_win = length(freq_mag_raw);

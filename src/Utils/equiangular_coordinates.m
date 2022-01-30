@@ -1,4 +1,5 @@
 function out_pos = equiangular_coordinates(res, radius, ele_max, ele_min)
+% generate 3d grid with arbitrary spatial resolution 
 if nargin<1
     res = 1; % angle resolution
     radius = 1;

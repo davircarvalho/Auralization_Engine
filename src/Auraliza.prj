@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2519518923" file="D:\Documentos\1 - Work\Auralization_Engine\src\Auraliza.prj" location="D:\Documentos\1 - Work\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2942048103" file="D:\Documentos\1 - Work\Auralization_Engine\src\Auraliza.prj" location="D:\Documentos\1 - Work\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
     <param.appname>Auraliza</param.appname>
     <param.authnamewatermark>Davi Carvalho</param.authnamewatermark>
     <param.email />
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary />
     <param.description>Módulo de auralização SOFA multicanal</param.description>
-    <param.screenshot>C:\Users\rdavi\AppData\Local\Temp\tp252e4de2_f2a6_476b_85ae_485032cabc44.png</param.screenshot>
-    <param.version>1.08.14</param.version>
+    <param.screenshot>C:\Users\rdavi\AppData\Local\Temp\tp7671ecbc_e4c0_4117_af78_c1928fb5dc0b.png</param.screenshot>
+    <param.version>2.1.30</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -36,21 +36,27 @@
     <fileset.depfun>
       <file>${PROJECT_ROOT}\air_absorption.m</file>
       <file>${PROJECT_ROOT}\get_min_phase.m</file>
+      <file>${PROJECT_ROOT}\nav2sph.m</file>
       <file>${PROJECT_ROOT}\playbuttom.png</file>
       <file>${PROJECT_ROOT}\SOFAgetConventions.m</file>
       <file>${PROJECT_ROOT}\SOFAgetITD.m</file>
       <file>${PROJECT_ROOT}\sph2nav.m</file>
       <file>${PROJECT_ROOT}\stopbuttom.png</file>
+      <file>${PROJECT_ROOT}\Utils\callSOFAload.m</file>
       <file>${PROJECT_ROOT}\Utils\check_HT_status.m</file>
       <file>${PROJECT_ROOT}\Utils\circles.m</file>
       <file>${PROJECT_ROOT}\Utils\get_parallax_pos.m</file>
       <file>${PROJECT_ROOT}\Utils\HRIR_filter_design.m</file>
       <file>${PROJECT_ROOT}\Utils\hrtf_parallax.m</file>
       <file>${PROJECT_ROOT}\Utils\initializeROI.m</file>
+      <file>${PROJECT_ROOT}\Utils\ITA2spheric.m</file>
       <file>${PROJECT_ROOT}\Utils\license_check.m</file>
       <file>${PROJECT_ROOT}\Utils\load_HpTF.m</file>
       <file>${PROJECT_ROOT}\Utils\n_sources_coord.m</file>
       <file>${PROJECT_ROOT}\Utils\optional_IR_conv.m</file>
+      <file>${PROJECT_ROOT}\Utils\resample_audio.m</file>
+      <file>${PROJECT_ROOT}\Utils\truncate_IR.m</file>
+      <file>${PROJECT_ROOT}\Utils\UPOLS_parameters.m</file>
       <file>D:\Documentos\MATLAB\API_MO\API_MO\netcdf\NETCDFload.m</file>
       <file>D:\Documentos\MATLAB\API_MO\API_MO\SOFAaddVariable.m</file>
       <file>D:\Documentos\MATLAB\API_MO\API_MO\SOFAappendText.m</file>
@@ -63,9 +69,6 @@
       <file>D:\Documentos\MATLAB\API_MO\API_MO\SOFAload.m</file>
       <file>D:\Documentos\MATLAB\API_MO\API_MO\SOFAupdateDimensions.m</file>
       <file>D:\Documentos\MATLAB\API_MO\API_MO\SOFAupgradeConventions.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\SphericalHarmonics\AKsphericalHead.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\Tools\AKgreatCircleGrid.m</file>
-      <file>D:\Documentos\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\Tools\AKsingle2bothSidedSpectrum.m</file>
     </fileset.depfun>
     <fileset.resources>
       <file>${PROJECT_ROOT}\Curvas de fones</file>
@@ -78,7 +81,7 @@
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\Polyspace\R2021a</root>
+      <root>D:\Matlab</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />

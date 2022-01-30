@@ -147,6 +147,7 @@ end
 
 
 if strcmpi(convention, 'MultiSpeakerBRIR')  % MultiSpeakerBRIR
+    Obj.API.N = size(IR_cut,1);
     Obj.Data.IR = permute(IR_cut, [4,3,2,1]);
 else
     Obj.Data.IR = shiftdim(IR_cut, 1); %% Devolve ao objeto 
