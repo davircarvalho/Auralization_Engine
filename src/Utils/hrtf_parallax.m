@@ -36,7 +36,7 @@ if nargin < 4 || isempty(earPosition)
 end
 
 if sourceDistance < head_radius
-    error('Source distance smaller than head radius!');
+    sourceDistance = head_radius + 0.2;
 end
 
 %% Transform sampling grid and ear positions to radiant in matlab coordinates system
