@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2942048103" file="D:\Documentos\1 - Work\Auralization_Engine\src\Auraliza.prj" location="D:\Documentos\1 - Work\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2772485139" file="D:\Documentos\1 - Work\Auralization_Engine\src\Auraliza.prj" location="D:\Documentos\1 - Work\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
     <param.appname>Auraliza</param.appname>
     <param.authnamewatermark>Davi Carvalho</param.authnamewatermark>
     <param.email />
@@ -17,7 +17,9 @@
     <param.products.name />
     <param.products.id />
     <param.products.version />
-    <param.platforms />
+    <param.platforms>
+      <item>win64</item>
+    </param.platforms>
     <param.output>${PROJECT_ROOT}</param.output>
     <param.guid>853b29bc-fb67-4884-a328-9c4ebf04854d</param.guid>
     <unset>
@@ -27,7 +29,6 @@
       <param.products.name />
       <param.products.id />
       <param.products.version />
-      <param.platforms />
       <param.output />
     </unset>
     <fileset.main>
@@ -72,7 +73,10 @@
     </fileset.depfun>
     <fileset.resources>
       <file>${PROJECT_ROOT}\Curvas de fones</file>
+      <file>${PROJECT_ROOT}\HeadTracker</file>
       <file>${PROJECT_ROOT}\individuo_141.sofa</file>
+      <file>${PROJECT_ROOT}\Utils\filters\distEQ_44.1kHz.mat</file>
+      <file>${PROJECT_ROOT}\Utils\filters\distEQ_48kHz.mat</file>
       <file>${PROJECT_ROOT}\Voice Sabine Short_edited.wav</file>
     </fileset.resources>
     <fileset.package />
