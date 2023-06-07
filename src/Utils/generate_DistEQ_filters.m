@@ -1,5 +1,5 @@
 % pre-calculate distance equalization filters 
-clear; clc
+disp('Pre-calculating distance variation filters')
 source_radius = [0.15:0.025:0.5, 0.55:0.05:2].';
 N_dist = length(source_radius);
 
@@ -14,7 +14,7 @@ des_pos = pos;
 
 
 fs = [44100; 48000; 88200; 96000];
-N_samples = 512;
+N_samples = 256;
 temp = zeros(N_samples, N_pos, 2, N_dist);
 for f = 1:length(fs)
     for k=1:length(source_radius)
