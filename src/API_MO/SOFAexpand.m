@@ -1,19 +1,28 @@
 function [Obj, log] = SOFAexpand(Obj,VarName)
-%SOFAexpand
-%   Obj = SOFAexpand(Obj) expands the singleton dimensions of all variables.
-%   Only variables will be expanded. Data and attributes won't. Note that
-%   also Obj.API.Dimensions will be updated to the new dimensions.
-% 
-%		Obj = SOFAexpand(Obj,VarName) expands the singleton dimensions of 
-%		the variable VarName.
+%SOFAexpand - Expand variables in a SOFA object
+%   Usage: Obj = SOFAexpand(Obj,VarName) 
+%    
+%   SOFAexpand(Obj,VarName) expands the the singleton dimensions of 
+%   the variable VarName, e.g., a variable SourcePosition containing a single entry
+%   thus size of [I C], will be expanded to the next possible,thus size of [I M].
+%   The potential for the expansion is defined in API.Dimensions.VarName. 
+%   Obj.API.Dimensions will be updated to the new dimensions.
 %   
-%   [Obj,log] = SOFAexpand(...) returns a log of expanded variables.
+%   SOFAexpand(Obj) expands the singleton dimensions of all variables of Obj.
+%   Note that Data variables are not expanded. 
+% 
+%	Obj = SOFAexpand(Obj,VarName) expands the singleton dimensions of the variable VarName.
+%   
+%   [Obj,log] = SOFAexpand(..) returns a log of expanded variables.
 
-% SOFA API - function SOFAexpand
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or - as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+%
+% SOFA Toolbox - function SOFAexpand
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
@@ -112,7 +121,7 @@ function [var,dN]=expand(Obj,f,dims)
 		len=size(Obj.(f),d(jj)); % size of the considered dimension
 		if len>1, continue; end;	% the expandable dimension is already expanded
 		dN=dims{cellfun('isempty',strfind(dims,'I'))==1};
-		var=bsxfun(@times,Obj.(f),ones(getdim(Obj,dN)));
+		var=bsxfun(@times,Obj.(f),ones([getdim(Obj,dN) 1]));
 	end
 	if ~exist('var','var'), var=[]; dN=[]; end;
 %% Get the sizes of the dimension variables according the dimension variables in str
@@ -131,6 +140,6 @@ function [var,dN]=expandData(Obj,f,dims)
 		len=size(Obj.Data.(f),d(jj)); % size of the considered dimension
 		if len>1, continue; end;	% the expandable dimension is already expanded
 		dN=dims{cellfun('isempty',strfind(dims,'I'))==1};
-		var=bsxfun(@times,Obj.Data.(f),ones(getdim(Obj,dN)));
+		var=bsxfun(@times,Obj.Data.(f),ones([getdim(Obj,dN) 1]));
 	end
 	if ~exist('var','var'), var=[]; dN=[]; end;

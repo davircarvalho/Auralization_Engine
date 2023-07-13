@@ -1,16 +1,23 @@
 function [Obj, log] = SOFAcompact(Obj)
-%SOFAcompact
-%   Obj = SOFAcompact(Obj) compacts the unique value to singleton dimensions 
-%   of variables where possible. 
+%SOFAcompact - Compact a SOFA object by removing redundancies in the objects 
+%   Usage: Obj = SOFAcompact(Obj) 
+%
+%   SOFAcompact compacts the unique values to singleton dimensions 
+%   of variables where possible. For example, if SourcePosition has M entries
+%   but all of them refer to the same position, SOFAcompact will compact
+%   SourcePosition to a single entry. 
+%    
 %   Current limitation: Variables with 3 dimensions will be only compacted
 %   when the third dimension is the compressible one.
-%
 
-% SOFA API - function SOFAcompact
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or ñ as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "Licence")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: header documentation updated (20.10.2021)
+
+% SOFA Toolbox - function SOFAcompact
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "Licence")
 % You may not use this work except in compliance with the Licence.
-% You may obtain a copy of the Licence at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the Licence at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the Licence for the specific language governing  permissions and limitations under the Licence. 
 

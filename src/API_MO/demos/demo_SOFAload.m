@@ -1,8 +1,14 @@
-% SOFA API - demo script
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+%demo_SOFAload - Demo showing how to load SOFA files, full or partial data.
+
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: bugs fixed (10.2021)
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+% 
+% SOFA Toolbox - demo script
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
@@ -51,11 +57,11 @@ disp(['  Memory requirements: ' num2str(round((xobj.bytes+xmeta.bytes)/1024)) ' 
 %% Extract and plot the fully loaded data
 IRsFull=squeeze(ObjFull.Data.IR(idx,1,:));
 legFull=num2str(ObjFull.SourcePosition(idx,3));
+figure('Name',mfilename);
 subplot(1,2,1);
 plot(IRsFull');
 legend(legFull);
-title(['Demo of SOFAload:' 10 ...
-			'Fully loaded data']);
+title(['Fully loaded data'], 'Interpreter', 'none');
 xlabel(['Index (Sample Taps), fully loaded']);
 ylabel('Amplitude');
 
@@ -69,6 +75,6 @@ subplot(1,2,2);
 plot(IRs');
 legend(leg);
 title(['IRs for the left ear with radius as parameter' 10 ...
-			'Partially loaded data']);
+			'Partially loaded data'], 'Interpreter', 'none');
 xlabel(['Index (Sample Taps), partially loaded']);
 ylabel('Amplitude');

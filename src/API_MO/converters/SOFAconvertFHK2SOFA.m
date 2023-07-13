@@ -1,19 +1,43 @@
 function Obj=SOFAconvertFHK2SOFA(miroObj)
-% OBJ=SOFAconvertFHK2SOFA(miroObj) converts the HRTFs described in miroObj
-% to SOFA. miroObj is the miro object saved at the Fach-Hochschule Köln
-% provided by Benjamin Bernschütz.
-% Reference to the source format: http://www.audiogroup.web.fh-koeln.de/ku100hrir.html
-% Reference to the source coordinate system: [1] http://code.google.com/p/sofia-toolbox/wiki/COORDINATES
+%SOFAconvertFHK2SOFA - converts from miroObj to SOFA format
+%   Usage: OBJ=SOFAconvertFHK2SOFA(miroObj)
+% 
+%   SOFAconvertFHK2SOFA(miroObj) converts the HRTFs described in miroObj to SOFA. miroObj is the miro object saved at the Fach-Hochschule Köln, provided by Benjamin Bernschütz.
+%
+%   Input parameters:
+%     miroObj : HRTF data in miro format
+% 
+%   Output parameters:
+%     Obj : New SOFA object (SOFA format)
+% 
+%   Reference to the source format: http://www.audiogroup.web.fh-koeln.de/ku100hrir.html
+%   Reference to the source coordinate system: http://code.google.com/p/sofia-toolbox/wiki/COORDINATES
 
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences;
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+%
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences;
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
-if isoctave,
-    error(['Octave is not able to convert FHK to SOFA, use Matlab instead.']);
+% if isoctave,
+if exist('OCTAVE_VERSION','builtin') ~= 0
+    error('Octave is not able to convert FHK to SOFA, use Matlab instead.');
+end
+
+%% Check if miro.m class file is available, if not download file from server
+% miro class might also be included in other toolboxes, eg. AKtools
+if exist('miro','class') ~= 8
+    % download miro.m
+    disp('Downloading miro.m from TH Köln server...')
+    url = 'http://audiogroup.web.th-koeln.de/FILES/miro.m'; 
+    basepath=which('SOFAstart');
+    basepath=basepath(1:end-12); % Kill the function name from the path.
+    target=[basepath filesep 'helpers' filesep 'miro.m'];
+    websave (target,url);
 end
 
 %% Get an empty conventions structure

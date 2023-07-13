@@ -1,12 +1,24 @@
 function [hM,meta,stimPar]=SOFAconvertSOFA2ARI(Obj)
-% OBJ=SOFAconvertSOFA2ARI(hM,meta,stimPar) converts the  HRTFs described in hM, meta, and
-% stimPar (see ARI HRTF format) to a SOFA object.
+%SOFAconvertSOFA2ARI - converts from SOFA to ARI format
+%   Usage: [hM, meta, stimPar]=SOFAconvertSOFA2ARI(Obj)
+% 
+%   SOFAconvertSOFA2ARI(Obj) converts a SOFA object HRTFs to HRTFs described in hM, meta, and stimPar (see ARI HRTF format).
 %
+%   Input parameters:
+%     Obj : SOFA object (SOFA format)
+% 
+%   Output parameters:
+%     hM      : HRTF data in ARI format
+%     meta    : Meta data (ARI format)
+%     stimPar : Stimulation parameters (ARI format)
 
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences;
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: doc fixed, header documentation updated (28.10.2021)
+%
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences;
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 

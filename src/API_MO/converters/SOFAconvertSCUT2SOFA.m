@@ -1,12 +1,24 @@
 function Obj=SOFAconvertSCUT2SOFA(root,r)
-% OBJ=SOFAconvertSCUT2SOFA(root,pinna) loads the SCUT HRTFs saved in a 
-% directory ROOT for the radius R and converts to a SOFA object.
-% R must be in meters.
+%SOFAconvertSCUT2SOFA - converts from SCUT to SOFA format
+%   Usage: OBJ=SOFAconvertSCUT2SOFA(root,pinna)
+% 
+%   OBJ=SOFAconvertSCUT2SOFA(root,pinna) loads the SCUT HRTFs saved in a directory ROOT for the radius R and converts to a SOFA object.
+%   R must be in meters.
+%
+%   Input parameters:
+%     root : Root source folder
+%     r    : Radius in meters
+% 
+%   Output parameters:
+%     Obj : New SOFA object (SOFA format)
 
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences;
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+%
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences;
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
@@ -32,6 +44,9 @@ for jj=1:length(r)
       azi = 360/elecnt(ei)*ai;
       fn=fullfile(root, ['r' num2str(r(jj)*100)], ['ele' num2str(ele)], ['H' num2str(azi) 'c.pcm']);
       dirfn=dir(fn);
+      if isempty(dirfn) % check if HRTF sources are available
+          error(['HRTF files not available in: ' fullfile(root, ['r' num2str(r(jj)*100)], ['ele' num2str(ele)])]);
+      end
       fid = fopen(fn, 'r');
       H = fread(fid,'float');
       fclose(fid);

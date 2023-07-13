@@ -1,28 +1,38 @@
 function [out, azi, ele, idx] = SOFAspat(in,Obj,azi,ele)
-% SOFAspat
-% [out, azi, ele, idx] = SOFAspat(in,Obj,azi,ele) spatializes the sound IN using
-% the HRTFs from OBJ according to the trajectory given in AZI and ELE.
-% Input: 
-%		in: vector with the sound
+%SOFAspat - Spatialize a sound source along a trajectory
+%   Usage: out = SOFAspat(IN,Obj,AZI,ELE)
+%          [out, azi, ele, idx] = SOFAspat(IN,Obj,AZI,ELE)
+%
+%   out = SOFAspat(IN, Obj, AZI, ELE) spatializes the sound IN using
+%   the HRTFs from Obj along the trajectory given in AZI and ELE.
+%
+%   [out, azi, ele, idx] = SOFAspat(..) returns the actual trajectory 
+%   and the index vector of the actually used filters from Obj. 
+%   
+%   Input parameters: 
+%		IN:  vector with the sound
 %		Obj: SOFA object containing the HRTFs
-%		azi, ele: vectors with the trajectory (in degrees) independent for
-%							azimuth and elevation
+%		azi: vector with the azimuth angles (in degrees) of the trajectory
+%       ele: vector with the elevation angles (in degrees) of the trajectory
+%   The first and last element in azi and ele defines the beginning and end direction
+%   of the spatialized source. Directions inbetween will be interpolated. 
 % 
-% Output: 
-%		out: binaural signal
-%		azi, ele: azimuth and elevation of the actual trajectory (degrees)
-%		idx: index of the filters (corresponds to AZI and ELE)
+%   Output parameters: 
+%		out: the spatialized binaural signal
+%		azi: the azimuth angles of the actual trajectory (degrees)
+%		ele: the elevation angles of the actual trajectory (degrees)
+%		idx: index of the used filters corresponding to the actual trajectory
 %
-% This is an example of how to use SOFA.
-%
-% Piotr Majdak, 2013
-% adapted by Robert Baumgartner, 2016
 
-% SOFA API - demo script
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak (2013)
+% #Author: Robert Baumgartner: adaptations (2016)
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+%
+% SOFA Toolbox
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 

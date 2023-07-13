@@ -1,10 +1,12 @@
-% SOFA API demo script
-% load HRTF in BT-DEI format and save in SOFA format.
+%demo_BTDEI2SOFA - Load HRTF in BT-DEI format and save in SOFA format.
 
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences;
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+% 
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences;
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
@@ -46,7 +48,7 @@ try
     BTDEI.specs = container.specs; 
     BTDEI.data  = container.data; 
 catch e
-	error(['Convertion - Error message: ' e.message]);
+	error(['Load BTDEI file - Error message: ' e.message ' Try downloading the BT-DEI database from: http://padva.dei.unipd.it/?page_id=345 to the corresponding directory.']);
 end
 
 BTDEI.type    = BTDEIfold;
@@ -57,6 +59,6 @@ Obj = SOFAconvertBTDEI2SOFA(BTDEI);
 Obj.GLOBAL_Comment = SOFAappendText(Obj,'GLOBAL_Comment',BTDEIfold);
 
 %% save SOFA file 
-SOFAfn=fullfile(SOFAdbPath,'sofa_api_mo_test',['BTDEI-hp_' hp '_subj_' subject '-' setm '-' BTDEIfold '.sofa']);
+SOFAfn=fullfile(SOFAdbPath,'sofatoolbox_test',['BTDEI-hp_' hp '_subj_' subject '-' setm '-' BTDEIfold '.sofa']);
 disp(['Saving:  ' SOFAfn])
 SOFAsave(SOFAfn, Obj, compression);

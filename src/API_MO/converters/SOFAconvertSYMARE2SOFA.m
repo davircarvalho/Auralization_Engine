@@ -1,14 +1,25 @@
-function [Obj] = SOFAconvertSYMARE2SOFA(SYMAREpath,HRIRname)
-%   [Obj] = SOFAconvertSYMARE2SOFA(SYMAREpath,HRIRname) converts objects
-%   from SYMARE database to Struct in SOFA format.
+function Obj = SOFAconvertSYMARE2SOFA(SYMAREpath,HRIRname)
+%SOFAconvertSYMARE2SOFA - converts from SYMARE to SOFA format
+%   Usage: Obj = SOFAconvertSYMARE2SOFA(SYMAREpath,HRIRname)
+% 
+%   SOFAconvertSYMARE2SOFA(SYMAREpath,HRIRname) converts objects from SYMARE database to SOFA format.
 %
-%   SYMAREpath of type string specifies the path where the SYMARE directory
-%   is found
-%   HRIRname of type string specifies which HRIR out of the
-%   <SYMAREpath>/HRIRs/Acoustic directory should be converted
+%   Input parameters:
+%     SYMAREpath : Path of the SYMARE directory
+%     HRIRname   : HRIR in the <SYMAREpath>/HRIRs/Acoustic directory to be converted
+% 
+%   Output parameters:
+%     Obj : New SOFA object (SOFA format)
+
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: license added, header documentation updated (28.10.2021)
 %
-%   Returns Obj in SOFA format which can further be converted into .sofa
-%   file using SOFAsave
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences;
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% You may not use this work except in compliance with the License.
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
+% Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing  permissions and limitations under the License. 
 
 %% Get an empty conventions structure
 

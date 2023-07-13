@@ -1,16 +1,23 @@
 function [Obj,modified] = SOFAupgradeConventions(Obj)
-%SOFAcompatibility 
-%   [Obj,modified] = SOFAupgradeConventions(Obj) upgrades the Obj to the next higher
-%   version if required. MODIFIED is 1 when an upgrade was required. 
-%   In order to obtain the most recent version, SOFAupgradeConventions
-%   should be processed recursively until MODIFIED is 0. 
+%SOFAupgradeConventions - Upgrade conventions to a higher version
+%   Usage: Obj = SOFAupgradeConventions(Obj)
+%
+%   Obj = SOFAupgradeConventions(Obj) searches for a new version of the 
+%   convention stored in Obj and upgrades to a next higher
+%   version if found. 
+%
+%   [Obj,MODIFIED] = SOFAupgradeConventions(..) returns MODIFIED = 1 when 
+%   an upgrade was performed. In order to obtain the most recent version, 
+%   SOFAupgradeConventions can be processed recursively until MODIFIED is 0. 
 
-
-% SOFA API - function SOFAcompatibility
-% Copyright (C) 2012 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+%
+% SOFA Toolbox - function SOFAupgradeConventions
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 

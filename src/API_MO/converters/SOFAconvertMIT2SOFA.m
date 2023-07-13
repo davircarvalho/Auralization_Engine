@@ -1,12 +1,24 @@
 function Obj=SOFAconvertMIT2SOFA(root,pinna)
-% OBJ=SOFAconvertMIT2SOFA(root,pinna) loads the MIT HRTFs saved in a 
-% directory ROOT for the PINNA and converts to a SOFA object.
-% PINNA must be 'normal' or 'large'.
+%SOFAconvertMIT2SOFA - converts from MIT to SOFA format
+%   Usage: OBJ=SOFAconvertMIT2SOFA(root,pinna) 
+% 
+%   OBJ=SOFAconvertMIT2SOFA(root,pinna) loads the MIT HRTFs saved in a directory ROOT for the PINNA and converts to a SOFA object. 
+%   PINNA must be 'normal' or 'large'.
+%
+%   Input parameters:
+%     root  : Root source folder
+%     pinna : Pinna size ('normal' or 'large')
+% 
+%   Output parameters:
+%     Obj : New SOFA object (SOFA format)
 
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences;
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+%
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences;
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
@@ -35,7 +47,13 @@ elecnt=[ 56  60  72  72 72 72 72 60 56 45 36 24 12  1];
 %% Determine data size
 M=sum(elecnt);
 Obj.SourcePosition=zeros(M,3);
-Obj.Data.IR=zeros(M,2,length(audioread([root filesep prefix filesep 'elev0' filesep postfix '0e000a.wav'])));
+if isfile([root filesep prefix filesep 'elev0' filesep postfix '0e000a.wav'])
+    Obj.Data.IR=zeros(M,2,length(audioread([root filesep prefix filesep 'elev0' filesep postfix '0e000a.wav'])));
+else
+    warning(['File not existing: ' root filesep prefix filesep 'elev0' filesep postfix '0e000a.wav' '  -->  Please download it to: ' root filesep prefix filesep 'elev0' filesep]);
+    error(['Sorry.... ' mfilename ' cannot complete!']);
+end
+
 
 %% Fill with data 
 Obj.Data.SamplingRate = 44100;

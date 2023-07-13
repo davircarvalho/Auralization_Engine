@@ -1,17 +1,22 @@
-function NETCDFsave(filename,Obj,Compression)
-%NETCDFSAVE
-%   NETCDFsave(filename,Dataset,Compression) saves all data and metadata to
-%   a SOFA file.
+function NETCDFsave(filename, Obj, Compression)
+%NETCDFSAVE - Saves all data and metadata to a SOFA file.
+%   Usage: NETCDFsave(filename, Obj, Compression)
+% 
+%   Input parameters:
+%     filename    : SOFA file name
+%     Dataset     : SOFA Object to be saved
+%     Compression : Compression of the file, number between 0 and 9, 0: no compression, 9: largest compression available
 
-% SOFA API - function netcdf/NETCDFsave
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak (09.04.2013)
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+
+% SOFA Toolbox - function netcdf/NETCDFsave
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
-
-% Piotr Majdak, 9.4.2013
 
 % If we are running octave we have to import the NETCDF namespace, in order to
 % run functions like netcdf.getConstant
@@ -114,7 +119,7 @@ fv=fieldnames(Dimensions);
         if iscell(Obj.(var))
           c=char(permute(Obj.(var),length(ids):-1:1));
           s=size(c);
-          ext=zeros([s(1:end-1) Obj.API.S-s(end)]);
+          ext=zeros([s(1:end-1) Obj.API.S-s(end)]); % array 'ext' causes warnings in Octave in next row; 'strings' command would work better than 'zeros' but it is not supported in Octave
           netcdf.putVar(ncid,varId(ii),[c ext]);
         else  
           netcdf.putVar(ncid,varId(ii),permute(Obj.(var),length(ids):-1:1)); % we need to reverse the dimension order because Matlab netcdf API saves data in the reverse order
@@ -144,7 +149,7 @@ fod=fieldnames(Obj.Data);
         if iscell(Obj.Data.(var))
           c=char(permute(Obj.Data.(var),length(ids):-1:1)); % we need to reverse the dimension order because Matlab netcdf API saves data in the reverse order
           s=size(c);
-          ext=zeros([s(1:end-1) Obj.API.S-s(end)]);
+          ext=zeros([s(1:end-1) Obj.API.S-s(end)]); % array 'ext' causes warnings in Octave in next row; 'strings' command would work better than 'zeros' but it is not supported in Octave
           netcdf.putVar(ncid,varIdD(ii),[c ext]); 
         else
           netcdf.putVar(ncid,varIdD(ii),permute(Obj.Data.(var),length(ids):-1:1)); % we need to reverse the dimension order because Matlab netcdf API saves data in the reverse order
@@ -164,14 +169,16 @@ fod=fieldnames(Obj.Data);
   
 catch ME
 % 	if ~strcmp(ME.identifier,'MATLAB:imagesci:netcdf:libraryFailure')
-		netcdf.close(ncid);
+    if exist('ncid','var')
+      netcdf.close(ncid); 
+      for ii=1:length(ME.stack)
+        disp(ME.stack(ii));
+      end
+      error(['Error processing ' var 10 'Error message: ' ME.message]);
+    else
+      error(['Not not able to create the file ' filename]); 
+    end
 % 	end
-	for ii=1:length(ME.stack)
-		disp(ME.stack(ii));
-	end
-	error(['Error processing ' var 10 ...
-					'Error message: ' ME.message]);
-
 end
 netcdf.close(ncid);
 	

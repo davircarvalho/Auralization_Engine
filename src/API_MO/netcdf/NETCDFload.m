@@ -1,26 +1,35 @@
-function [Obj,Dims] = NETCDFload(filename,flags,varargin)
-%% NETCDFLOAD
-%   Obj = NETCDFload(filename,'all') reads the SOFA object OBJ with all data from
-%   a SOFA file.
+function [Obj,Dims] = NETCDFload(filename, flags, varargin)
+%NETCDFLOAD - Read a SOFA object.
+%   Usage:
+%     Obj = NETCDFload(filename, 'all') reads the SOFA object OBJ with all data from a SOFA file.
 %
-%   Obj = NETCDFload(filename,'nodata') ignores the Data. variables while
-%   reading.
+%     Obj = NETCDFload(filename, 'nodata') ignores the data, reads variables.
 %
-%   Obj = NETCDFload(filename,[START COUNT],partialDim) reads only COUNT number of data
-%   in dimension partialDim (given as string) beginning with the index START. If START
-%   and COUNT are column vectors, then partialDim has to be a string containing the
-%   dimension for every column entry.
+%     Obj = NETCDFload(filename, [START COUNT], partialDim) reads only COUNT number of data
+%     in dimension partialDim (given as string) beginning with the index START. If START
+%     and COUNT are column vectors, then partialDim has to be a string containing the
+%     dimension for every column entry.
 %
-%   [Obj,Dims] = NETCDFload(...) returns the dimension variables found in
-%   the file as a string.
-
-% 10.8.2014: string array support. Works for 1D and 2D strings only.
+%     [Obj,Dims] = NETCDFload(...) returns the dimension variables found in
+%     the file as a string.
 % 
-% SOFA API - function netcdf/NETCDFload
-% Copyright (C) 2012 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+%   Input parameters:
+%     filename : SOFA file name
+%     flags    : See Usage for supported flags.
+% 
+%   Output parameters:
+%     Obj  : SOFA object
+%     Dims : Dimension variables found in the file as a string
+
+% #Author: Piotr Majdak: String array support. Works for 1D and 2D strings only. (10.08.2014)
+% #Author: Michael Mihocic: 'deblank' command added when loading strings to avoid trailing empty spaces in size of array dimension (14.10.2021)
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+
+% SOFA Toolbox - function netcdf/NETCDFload
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
@@ -98,7 +107,7 @@ try
                         end
                     else % 1D string array
                         data=netcdf.getVar(ncid,varids(ii+1),startp(vardimids+1),countp(vardimids+1));
-                        Obj.Data.(var(6:end))=cellstr(reshape(reshape(data,1,[]),size(data,2),[]));
+                        Obj.Data.(var(6:end))=deblank(cellstr(reshape(reshape(data,1,[]),size(data,2),[])));
                     end
                 elseif length(dim)>1
                     Obj.Data.(var(6:end))=permute(netcdf.getVar(ncid,varids(ii+1),startp(vardimids+1),countp(vardimids+1)), length(dim):-1:1); 
@@ -124,7 +133,7 @@ try
                     end
                 else % 1D string array
                     data=netcdf.getVar(ncid,varids(ii+1),startp(vardimids+1),countp(vardimids+1));
-                    Obj.(var)=cellstr(reshape(reshape(data,1,[]),size(data,2),[]));
+                    Obj.(var)=deblank(cellstr(reshape(reshape(data,1,[]),size(data,2),[])));
                 end
             elseif length(dim)>1
                 Obj.(var)=permute(data, length(dim):-1:1); 

@@ -1,16 +1,19 @@
 function output = SOFAdefinitions(varargin)
-% SOFAdefinitions
+%SOFAdefinitions - Definitions of formats used by the toolbox
+%   Usage: output = SOFAdefinitions(type)
 %
-%   SOFAdefinitions returns a struct containing definitions like the time
-%   format used in the API.
+%   SOFAdefinitions() returns a struct containing definitions of the 
+%   formats like the time, date, dimensions, etc used in toolbox. 
+%   These formats correspond to those defined by AES69. 
 %
 %   SOFAdefinitions('dateFormat') returns the date format
 %
-%   SOFAdefinitions('APIName') returns the APIName
+%   SOFAdefinitions('APIName') returns the name of the toolbox
+%   to be stored as APIName
 %
-%   SOFAdefinitions('dimensions') returns the dimensions used in the API
+%   SOFAdefinitions('dimensions') returns the dimension strings
 %
-%   SOFAdefinitions('EOL') returns the end-of-line separator used in the API
+%   SOFAdefinitions('EOL') returns the end-of-line separator
 %
 %   SOFAdefinitions('dateReference') returns the string with the reference
 %   for the date when stored as numeric (number of seconds elapsed)
@@ -18,11 +21,14 @@ function output = SOFAdefinitions(varargin)
 %   SOFAdefinitions('units') returns the units and their corresponding aliases
 %
 
-% SOFA API - function SOFAdefinitions
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak
+% #Author: Michael Mihocic: doc & header documentation updated (28.10.2021)
+%
+% SOFA Toolbox - function SOFAdefinitions
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License.
 
@@ -42,7 +48,7 @@ end
 
 %% name of the API
 if flags.do_APIName, 
-  output = 'ARI SOFA API for Matlab/Octave';
+  output = 'SOFA Toolbox for Matlab/Octave';
 end
 
 %% date string to use (see help datestr)

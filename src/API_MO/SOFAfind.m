@@ -1,26 +1,39 @@
 function [idx, azinew, elenew, rnew] = SOFAfind(Obj,azi,ele,r)
-% SOFAfind
-% [idx, azi, ele, r] = SOFAfind(Obj,azi,ele,r) finds the indecies to 
-% the HRTFs from OBJ according to the trajectory given in AZI, ELE, R.
-% Input: 
-%		Obj: SOFA object containing HRTFs
+%SOFAfind - Find a trajectory of a source given the SOFA object
+%   Usage: idx = SOFAfind(Obj,azi,ele,r)
+%
+%   SOFAfind(Obj,azi,ele) returns the indecies idx to the nearest
+%   directions available in Obj according to the trajectory given in 
+%   the spherical coordinate system described by [azi,ele].
+%   For the directions, SourcePositions is used. 
+%
+%   [idx, azinew, elenew] = SOFAfind(..) returns the actual trajectory
+%   described by azinew and elenew. 
+%
+%   SOFAfind(Obj,azi,ele,r) considers the radius as well. 
+%
+%   [idx, azinew, elenew, rnew] = SOFAfind(..) returs the actual trajectory
+%   described by azinew, elenew, and rnew.
+%
+%   Input parameters: 
+%		Obj:      SOFA object with the positions of the source
 %		azi, ele: direction (in degrees) for azimuth and elevation
-%       r: optional radius. If not provided, radius will be ignored.
+%       r:        radius (optional). If not provided, radius will be ignored.
 % 
-% Output: 
-%		idx: index of the filters (corresponds to AZI and ELE)
-%		azi, ele: azimuth and elevation of the actual position (degrees)
-%       r: actual radius
+%    Output parameters: 
+%		idx:      index of the data being nearest to the trajectory
+%		azi, ele: azimuth and elevation of the actual direction (degrees)
+%       r:        radius of the actual position 
 %
-% 
-%
-% Piotr Majdak, 2019
 
-% SOFA API - SOFAfind
-% Copyright (C) 2012-2013 Acoustics Research Institute - Austrian Academy of Sciences
-% Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
+% #Author: Piotr Majdak (2019)
+% #Author: Michael Mihocic: header documentation updated (28.10.2021)
+%
+% SOFA Toolbox - SOFAfind
+% Copyright (C) Acoustics Research Institute - Austrian Academy of Sciences
+% Licensed under the EUPL, Version 1.2 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "License")
 % You may not use this work except in compliance with the License.
-% You may obtain a copy of the License at: http://joinup.ec.europa.eu/software/page/eupl
+% You may obtain a copy of the License at: https://joinup.ec.europa.eu/software/page/eupl
 % Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing  permissions and limitations under the License. 
 
