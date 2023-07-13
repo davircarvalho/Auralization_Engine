@@ -1,8 +1,8 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="111213126" file="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src\Auraliza.prj" location="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3920933550" file="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src\Auraliza.prj" location="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
     <param.appname>Auraliza</param.appname>
     <param.authnamewatermark>Davi Carvalho</param.authnamewatermark>
-    <param.email />
+    <param.email>r.davicarvalho@gmail.com</param.email>
     <param.company />
     <param.icon>${PROJECT_ROOT}\Auraliza_resources\icon_24.png</param.icon>
     <param.icons>
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary />
     <param.description>Módulo de auralização SOFA multicanal</param.description>
-    <param.screenshot>C:\Users\Audioscenic\AppData\Local\Temp\tp3a6f75b2_8942_410e_af07_f157c9833929.png</param.screenshot>
-    <param.version>3.06.07</param.version>
+    <param.screenshot>C:\Users\Audioscenic\AppData\Local\Temp\tpb2afd94e_51fa_46b8_9514_f8fd540921ac.png</param.screenshot>
+    <param.version>3.07.13</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -21,7 +21,6 @@
     <param.output>${PROJECT_ROOT}</param.output>
     <param.guid>853b29bc-fb67-4884-a328-9c4ebf04854d</param.guid>
     <unset>
-      <param.email />
       <param.company />
       <param.summary />
       <param.products.name />
@@ -34,81 +33,6 @@
       <file>${PROJECT_ROOT}\Auraliza.mlapp</file>
     </fileset.main>
     <fileset.depfun>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertARI2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertBTDEI2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertCIPIC2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertFHK2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertLISTEN2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertMIT2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertSCUT2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertSOFA2ARI.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAconvertTUBerlin2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\converters\SOFAhrtf2dtf.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\coordinates\hor2sph.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\coordinates\sph2hor.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_ARI2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_BTDEI2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_CIPIC2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_FHK2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_HpIR.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_LISTEN2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_MIT2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SimpleFreeFieldHRIR2TF.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SingleRoomDRIROldenburg.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFA2ARI.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAexpandcompact.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAload.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAmerge.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAplotHRTF.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAsave.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAspat.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAstrings.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_SOFAvariables.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\demos\demo_TUBerlin2SOFA.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\helper\deg2rad.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\helper\isoctave.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\helper\rad2deg.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\netcdf\NETCDFload.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\netcdf\NETCDFsave.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAaddVariable.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAappendText.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAarghelper.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAcheckFilename.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAcompact.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAcompileConventions.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAconvertCoordinates.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAdbPath.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAdbURL.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAdefinitions.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAexpand.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAgetVersion.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAload.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAmerge.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAplotGeometry.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAplotHRTF.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAsave.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAspat.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAupdateDimensions.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\API_MO\SOFAupgradeConventions.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\callSOFAload.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\check_HT_status.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\circles.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\equiangular_coordinates.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\get_parallax_pos.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\HRIR_filter_design.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\hrtf_parallax.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\initializeROI.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\ITA2spheric.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\license_check.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\load_HpTF.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\n_sources_coord.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\optional_IR_conv.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\resample_audio.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\truncate_IR.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\Developer\Auralization_Engine\src\Utils\UPOLS_parameters.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\SphericalHarmonics\AKsphericalHead.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\Tools\AKgreatCircleGrid.m</file>
-      <file>C:\Users\Audioscenic\AppData\Roaming\MathWorks\MATLAB Add-Ons\Apps\Auraliza\MATLAB\SUpDEq\thirdParty\AKtools\2_Tools\Tools\AKsingle2bothSidedSpectrum.m</file>
       <file>${PROJECT_ROOT}\air_absorption.m</file>
       <file>${PROJECT_ROOT}\get_min_phase.m</file>
       <file>${PROJECT_ROOT}\nav2sph.m</file>
@@ -117,6 +41,61 @@
       <file>${PROJECT_ROOT}\SOFAgetITD.m</file>
       <file>${PROJECT_ROOT}\sph2nav.m</file>
       <file>${PROJECT_ROOT}\stopbuttom.png</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertARI2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertBTDEI2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertCIPIC2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertFHK2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertLISTEN2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertMIT2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertSCUT2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertSOFA2ARI.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAconvertTUBerlin2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\converters\SOFAhrtf2dtf.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\coordinates\hor2sph.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\coordinates\sph2hor.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\coordinates\sph2SH.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_ARI2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_BTDEI2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_CIPIC2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_FHK2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_LISTEN2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_MIT2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SimpleFreeFieldHRIR2TF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFA2ARI.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAexpandcompact.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAload.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAmerge.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAplotHRTF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAsave.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAspat.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAstrings.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAvariables.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_TUBerlin2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\netcdf\NETCDFload.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\netcdf\NETCDFsave.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAaddVariable.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAappendText.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAarghelper.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcalculateITD.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcheckFilename.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcompact.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcompileConventions.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAconvertConventions.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAconvertCoordinates.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAdbPath.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAdbURL.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAdefinitions.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAexpand.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAgetVersion.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAload.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAmerge.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAplotGeometry.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAplotHRTF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAremoveVariable.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAsave.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAspat.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAupdateDimensions.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAupgradeConventions.m</file>
     </fileset.depfun>
     <fileset.resources>
       <file>${PROJECT_ROOT}\API_MO</file>

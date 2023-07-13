@@ -1,6 +1,6 @@
 % pre-calculate distance equalization filters 
 disp('Pre-calculating distance variation filters')
-source_radius = [0.15:0.025:0.5, 0.55:0.05:2].';
+source_radius = [0.15:0.025:0.5, 0.55:0.05:1.5].';
 N_dist = length(source_radius);
 
 ref_dist = 2; % [m] - far-field condition
@@ -13,8 +13,8 @@ ref_pos(:,3) = ref_dist;
 des_pos = pos;
 
 
-fs = [44100; 48000; 88200; 96000];
-N_samples = 256;
+fs = [44100; 48000];
+N_samples = 128;
 temp = zeros(N_samples, N_pos, 2, N_dist);
 for f = 1:length(fs)
     for k=1:length(source_radius)
