@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3920933550" file="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src\Auraliza.prj" location="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="4143392417" file="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src\Auraliza.prj" location="C:\Users\Audioscenic\Documents\Developer\Auralization_Engine\src" name="Auraliza" target="target.mlapps" target-name="Package App">
     <param.appname>Auraliza</param.appname>
     <param.authnamewatermark>Davi Carvalho</param.authnamewatermark>
     <param.email>r.davicarvalho@gmail.com</param.email>
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary />
     <param.description>Módulo de auralização SOFA multicanal</param.description>
-    <param.screenshot>C:\Users\Audioscenic\AppData\Local\Temp\tpb2afd94e_51fa_46b8_9514_f8fd540921ac.png</param.screenshot>
-    <param.version>3.07.13</param.version>
+    <param.screenshot>C:\Users\Audioscenic\AppData\Local\Temp\tp8def4d6c_f79a_4331_9f5d_b1219ee74e2a.png</param.screenshot>
+    <param.version>3.07.17</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -58,14 +58,34 @@
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_BTDEI2SOFA.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_CIPIC2SOFA.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_FHK2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_FreeFieldDirectivityTF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_FreeFieldHRIR.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_FreeFieldHRTF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_General.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_GeneralFIR.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_GeneralFIR_E.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_GeneralSOS.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_GeneralTF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_GeneralTF_E.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_LISTEN2SOFA.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_MIT2SOFA.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SCUT2SOFA.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SimpleFreeFieldHRIR2TF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SimpleFreeFieldHRSOS.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SimpleFreeFieldSOS.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SimpleHeadphoneIR.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SingleRoomMIMOSRIR.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SingleRoomSRIR.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFA2ARI.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAcalculateITD.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAcalculateLFE.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAexpandcompact.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAHRTF2DTF.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAload.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAmerge.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAplotGeometry.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAplotHRTF.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAresample.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAsave.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAspat.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\demos\demo_SOFAstrings.m</file>
@@ -76,7 +96,9 @@
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAaddVariable.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAappendText.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAarghelper.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcalculateAPV.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcalculateITD.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcalculateLFE.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcheckFilename.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcompact.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAcompileConventions.m</file>
@@ -87,19 +109,22 @@
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAdefinitions.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAexpand.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAgetVersion.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAinfo.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAload.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAmerge.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAplotGeometry.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAplotHRTF.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAremoveVariable.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAresample.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAsave.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAspat.m</file>
+      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAstart.m</file>
       <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAupdateDimensions.m</file>
-      <file>C:\Users\Audioscenic\Documents\MATLAB\SOFAtoolbox\SOFAtoolbox\SOFAupgradeConventions.m</file>
     </fileset.depfun>
     <fileset.resources>
       <file>${PROJECT_ROOT}\API_MO</file>
       <file>${PROJECT_ROOT}\Curvas de fones</file>
+      <file>${PROJECT_ROOT}\eacheadtracker.py</file>
       <file>${PROJECT_ROOT}\individuo_141.sofa</file>
       <file>${PROJECT_ROOT}\Utils</file>
       <file>${PROJECT_ROOT}\Utils\filters\distEQ_44.1kHz.mat</file>
